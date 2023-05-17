@@ -1,29 +1,51 @@
 import express from "express";
 import mysql from "mysql";
+import cors from "cors";
 
 const app = express();
 
 const db = mysql.createConnection({
-    host:"localhost",
-    user:"root",
-    password:"Darkaint@7978",
-    database : "test"
-})
+  host: "localhost",
+  user: "root",
+  password: "root1234",
+  database: "test",
+});
 
-app.get("/", (req,res)=>{
-    console.log("Hello! this is backend using MySQL");
-})
+app.use(express.json());
+app.use(cors());
 
-app.get("/books", (req,res)=>{
-    const q  = "SELECT * FROM books"
-    db.query(q, (err,data)=>{
-        if(err) return res.json(err);
+app.get("/", (req, res) => {
+  console.log("Hello! this is backend using MySQL");
+});
 
-        return res.json(data);
+//ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_passowrd BY "root1234" (applied)
 
-    })
-})
+app.get("/books", (req, res) => {
+  const q = "SELECT * FROM books";
+  db.query(q, (err, data) => {
+    if (err) return res.json(err);
 
-app.listen(5000, ()=>{
-console.log("Connected to backend!..");
+    return res.json(data);
+  });
+});
+
+app.post("/books", (req, res) => {
+  const q = "INSERT INTO books (`title`, `desc`, `price`, `cover`) VALUES (?)";
+
+  const values = [
+    req.body.title,
+    req.body.desc,
+    req.body.price,
+    req.body.cover,
+  ];
+
+  db.query(q, [values], (err, data) => {
+    if (err) return res.json(err);
+
+    return res.json("Book has been sent successfully!");
+  });
+});
+
+app.listen(5000, () => {
+  console.log("Connected to backend!..");
 });
