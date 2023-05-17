@@ -6,7 +6,7 @@ import {
 import { Books } from "./pages/Books/Books";
 import { Add } from "./pages/Add/Add";
 import { Update } from "./pages/Update/Update";
-
+import '../src/App.css';
 
 function App() {
   return (
@@ -15,7 +15,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Books/>}/>
         <Route path="/add" element={<Add/>}/>
-        <Route path="/update" element={<Update/>}/>
+        <Route path="/update/:id" element={<Update/>}/>
       </Routes>
       </BrowserRouter>
    

@@ -33,7 +33,7 @@ export const Add = () => {
         <input type="text" onChange={handleChange} name="desc" placeholder='Description' />
         <input type="number" onChange={handleChange} name="price" placeholder='Price' />
         <input type="text" onChange={handleChange} name="cover" placeholder='Cover' />
-        <button onClick={handleClick}>Add</button>
+        <button className='formBtn'  onClick={handleClick}>Add</button>
     </div>
   )
 }

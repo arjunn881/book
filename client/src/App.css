@@ -1,38 +1,63 @@
-.App {
+.App{
+  height: 100vh;
+  padding: 0px 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.books{
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.book{
+  flex:1;
   display: flex;
   flex-direction: column;
+  gap: 10px;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+}
+img{
+  width: 200px;
+  height: 300px;
+  object-fit: cover;
+  background-color: rgb(179, 237, 218);
+}
+.delete{
+  border: 1px solid rgb(245, 191, 191);
+  color:rgb(242, 100, 100);
+  padding:3px 6px;
+  background-color: white;
+  cursor: pointer;
+
 }
 
-.App-link {
-  color: #61dafb;
+.update{
+  border: 1px solid rgb(204, 204, 243);
+  color:rgb(139, 139, 234);
+  padding:3px 6px;
+  background-color: white;
+  cursor: pointer;
+}
+.form{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+input{
+  width: 250px;
+  padding: 10px;
+  border: 1px solid gray;
+
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.formBtn{
+  border: none;
+  padding: 10px;
+  color:white;
+  background-color: rgb(250, 161, 161);
+  font-weight: bold;
+  cursor: pointer;
 }
